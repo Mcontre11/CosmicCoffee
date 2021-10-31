@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Coffee Orders</title>
+      <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+      <link rel="stylesheet" href="barista.css"> 
+   </head>
+   <body>
+      <section >
+         <a class="logoutBtn" href="/logout"><span class="fa fa-user"></span>Logout</a>
+      </section>
+
+      <a href="/"><img src="img/coffeeLogo.jpeg" height="250px" width="250px"></a>
+
+ <section class="await">
+      <h3 class="">Awaiting Orders</h3>
+         <div class="new-orders">
+            <ul>
+            <% for(let i=0; i<awaiting.length; i++) {%>
+            <% console.log(awaiting[i]) %>
+            <% if(awaiting[i].awaiting === true){ %>
+                  <li id="await" class="barista2">Barista: <%= awaiting[i].barista %>
+                  <span class="customer2">Customer: <%= awaiting[i].customer %></span>
+                  <span class="beverage2">Beverage: <%= awaiting[i]['beverage'] %></span>
+                           
+                  <span class="sugar2">sugar: <%= awaiting[i]['sugar'] %></span>
+                  <span class="toppings2">toppings: <%= awaiting[i]['toppings'] %></span>
+                  <span class="syrup2">syrup: <%= awaiting[i]['syrup'] %></span>
+                  <span class="milk2">milk: <%= awaiting[i]['milk'] %></span>
+                  <span class="size2">size: <%= awaiting[i]['size'] %></span>
+                  <div class="awaitBtns">
+                  <button id="<%= awaiting[i]._id %>" value="<%= awaiting[i].customer %>" class="complete-order">Complete Order</button>
+                  <button <i class="fa fa-trash" data-id="<%= awaiting[i]._id %>" aria-hidden="true"></i></button>
+                  </div>
+            </li>
+             <% } %>
+            <% } %> 
+         </ul>
+      </div>
+   </section>
+   
+   <section class="complete">
+      <h3 class="">Completed Orders</h3>
+      <button class="clear-all-completed">Clear All Completed</button>
+         <div class="completedOrders">
+            <ul>
+            <% for(let i=0; i<completed.length; i++) {%>
+               <li id ="complete" class="barista2">Barista: <%= completed[i].barista %>
+               <span class="customer2">Customer: <%= completed[i].customer %></span>
+               <span class="beverage2">Beverage: <%= completed[i]['beverage'] %></span>
+               <span class="toppings2">toppings: <%= completed[i]['toppings'] %></span>
+               <span class="syrup2">syrup: <%= completed[i]['syrup'] %></span>
+               <span class="sugar2">sugar: <%= completed[i]['sugar'] %></span>
+               <span class="milk2">milk: <%= completed[i]['milk'] %></span>
+               <span class="size2">Size: <%= completed[i]['size'] %></span>
+             
+               </li>
+            <% } %>
+         </ul>
+         </div>
+         </div>
+   </section>
+
+   <script src="https://kit.fontawesome.com/c0e668a8ad.js" crossorigin="anonymous"></script>
+      
+      <script src="main.js"></script>
+   </body>
+</html>
+
